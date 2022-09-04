@@ -1,0 +1,61 @@
+---
+title: "Covid-19 Data Processing"
+author: "Fredrick Ochuodho"
+date: "2022-09-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Required Packages
+
+```{r packages, message = FALSE }
+library(tidyverse)
+library(vroom)
+library(plotly)
+```
+
+## Obtaining the dataset from the WHO website
+
+```{r covid-19_dataset, message = FALSE, warning = FALSE, cache=TRUE}
+covid_19<-vroom('https://covid19.who.int/WHO-COVID-19-global-data.csv')
+head(covid_19)
+```
+
+## Overview The Cummulative Cases and Deaths
+In this subsection, Date reported, country, Cumulative cases are deaths are being explored for the whole data-set.
+
+```{r  Cumulative_cases}
+Cumulative_cases<-covid_19 %>% 
+  filter(New_cases>0, Country_code %in% c('KE', 'UG', 'TZ')) %>% 
+  group_by(Country)
+tail(Cumulative_cases)
+```
+
+## Plots{.tabset}
+
+### Scatter Plot
+
+```{r cummulative_casesplot, echo=FALSE}
+gz<-Cumulative_cases %>% 
+  ggplot(aes(Date_reported, Cumulative_cases))+ 
+  geom_line(aes(color= Country))+
+  theme_bw()
+ggplotly(gz)
+
+```
+
+
+```{r cummulative_casesplot2, echo=FALSE}
+gk<-Cumulative_cases %>% 
+  ggplot(aes(Date_reported, New_cases))+ 
+  geom_line(aes(color=Country))+
+  theme_bw()
+ggplotly(gk)
+
+```
+### Scatter reactive Plot
+
+

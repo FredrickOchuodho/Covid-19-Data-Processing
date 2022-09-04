@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+![](C:/Users/0chuodho/Documents/Covid_19/Covid-19-Data-Processing/covidimage.jpg)
