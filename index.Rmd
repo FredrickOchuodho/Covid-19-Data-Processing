@@ -15,26 +15,28 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(vroom)
 library(plotly)
+library(DT)
 ```
 
 ## Obtaining the dataset from the WHO website
 
-```{r covid-19_dataset, message = FALSE, warning = FALSE, cache=TRUE}
-covid_19<-vroom('https://covid19.who.int/WHO-COVID-19-global-data.csv')
-head(covid_19)
+```{r covid-19_dataset, message = FALSE, warning = FALSE}
+covid_19<-vroom('covid-19-global-data.csv')
+head(covid_19, 2)
 ```
 
 ## Overview The Cummulative Cases and Deaths
+
 In this subsection, Date reported, country, Cumulative cases are deaths are being explored for the whole data-set.
 
 ```{r  Cumulative_cases}
 Cumulative_cases<-covid_19 %>% 
   filter(New_cases>0, Country_code %in% c('KE', 'UG', 'TZ')) %>% 
   group_by(Country)
-tail(Cumulative_cases)
+head(Cumulative_cases)
 ```
 
-## Plots{.tabset}
+## Plots {.tabset}
 
 ### Interactive Line Graph of Cummulative Cases of 3 Countries
 
@@ -48,6 +50,7 @@ ggplotly(gz)
 ```
 
 ### Interactive Line Graph of New Cases of 3 Countries
+
 ```{r cummulative_casesplot2, echo=FALSE}
 gk<-Cumulative_cases %>% 
   ggplot(aes(Date_reported, New_cases))+ 
@@ -56,6 +59,3 @@ gk<-Cumulative_cases %>%
 ggplotly(gk)
 
 ```
-
-
-
