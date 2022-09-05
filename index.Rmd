@@ -36,7 +36,7 @@ tail(Cumulative_cases)
 
 ## Plots{.tabset}
 
-### Scatter Plot
+### Interactive Line Graph of Cummulative Cases of 3 Countries
 
 ```{r cummulative_casesplot, echo=FALSE}
 gz<-Cumulative_cases %>% 
@@ -47,7 +47,7 @@ ggplotly(gz)
 
 ```
 
-
+### Interactive Line Graph of New Cases of 3 Countries
 ```{r cummulative_casesplot2, echo=FALSE}
 gk<-Cumulative_cases %>% 
   ggplot(aes(Date_reported, New_cases))+ 
@@ -56,6 +56,6 @@ gk<-Cumulative_cases %>%
 ggplotly(gk)
 
 ```
-### Scatter reactive Plot
+
 
 
