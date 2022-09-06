@@ -3,9 +3,9 @@ output_dir: "docs"
 navbar:
       title: "Covid-19"
       left:
-      - text: "Home"
+      - text: "Covid-19 Dataset"
         href: index.html
-      - text: "About"
+      - text: "Other Datasets"
         href: about.html
 output:
   html_document:

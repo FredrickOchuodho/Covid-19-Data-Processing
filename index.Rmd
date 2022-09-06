@@ -9,6 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+After the Pandemic invasion, it gave rise to several data sets that were therefore of great interest to know the trend of the pandemic.
+
+This site therefore uses the world Covid-19 data sets to showcase how R package can be used in the Analysis and production of impressive charts from a big data sets.
+
+![](covidimage.jpg)
+
+
 ## Required Packages
 
 ```{r packages, message = FALSE }
