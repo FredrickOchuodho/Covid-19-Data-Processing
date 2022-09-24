@@ -6,4 +6,4 @@ The Data Visualization entails developing some elegant visual representation of 
 - Adding some impressive Visualizations using ggplot2
 
 **All these Activities are conducted using R.**
-Feel free to view my Github page that hosts the Covid-19-Data-Processing in R here <https://fredrickochuodho.github.io/Data-Visualization/>
+Feel free to view my Github page that hosts the Data-Processing in R at Data [Visualization](https://fredrickochuodho.github.io/Data-Visualization)
